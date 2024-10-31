@@ -1,8 +1,6 @@
 package com.example.lab8_20202396.Entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -11,9 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "estudiante")
 public class Estudiante {
     @Id
-    @Column(name = "idEstudiante", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idestudiante", nullable = false)
     private Integer id;
 
     @Size(max = 45)
@@ -31,7 +31,10 @@ public class Estudiante {
     private String facultad;
 
     @NotNull
-    @Column(name = "numCreditosTerminados", nullable = false)
+    @Column(name = "numcreditosterminados", nullable = false)
     private Short numCreditosTerminados;
+
+    @Column(name ="posicion")
+    private Integer posicion;
 
 }
